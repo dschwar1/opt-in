@@ -34,3 +34,4 @@ We are interested in how you approach the problem and what you decide to spend y
 Please ensure you have setup instructions included in your README.md file, upload your repo and send a link to the code repo to jnoble184@gmail.com
 
 ## Initial Commit: 2:30pm
+## Finished Commit: 3:30pm

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<h1 style="display: inline">Items</h1>
+<%= link_to 'All', items_path, class: "button small secondary" %>
+<%= link_to 'Completed', complete_items_path, class: "button small secondary" %>
+<%= link_to 'Uncompleted', incomplete_items_path, class: "button small secondary" %>
+<%= link_to 'Clear', clear_items_path, class: "button small alert", method: :delete, data: { confirm: 'Clear all completed items?' } %>
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Completed</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+      <tr>
+        <td>
+          <%= best_in_place item, :description %>
+        </td>
+        <td>
+          <% if item.complete %>
+            <i class="fi-check"></i>
+          <% else %>
+            <i class="fi-x"></i>
+          <% end %>
+        </td>
+        <td><%= link_to 'Change', check_item_path(item), method: :put, class: "button tiny secondary", style: "margin: 0" %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' }, class: "button tiny alert", style: "margin: 0" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div id="new_item">
+  <%= link_to 'New Item', new_item_path, remote: true, class: "button", style: "color: white" %>
+</div>
