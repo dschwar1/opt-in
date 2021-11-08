@@ -3,16 +3,19 @@ class ItemsController < ApplicationController
 
   # GET /items or /items.json
   def index
-    @items = Item.all.order(:created_at)
+    @lists = List.all.order(:created_at)
+    @unassigned_items = Item.where(list_id: nil).order(:created_at)
   end
 
   def complete
-    @items = Item.all.complete.order(:created_at)
+    @lists = List.all.order(:created_at)
+    @unassigned_items = Item.where(list_id: nil).order(:created_at)
     render 'index'
   end
 
   def incomplete
-    @items = Item.all.incomplete.order(:created_at)
+    @lists = List.all.order(:created_at)
+    @unassigned_items = Item.where(list_id: nil).order(:created_at)
     render 'index'
   end
 
@@ -33,6 +36,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @list = List.find(params[:list_id]) if params[:list_id]
     respond_to :html, :js
   end
 

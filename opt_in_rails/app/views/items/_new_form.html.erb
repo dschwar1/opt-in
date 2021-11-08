@@ -13,6 +13,10 @@
   <% end %>
 
   <div class="field">
+    <%= form.hidden_field :list_id, value: @list.id %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>

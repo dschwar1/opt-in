@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
-<h1 style="display: inline">Items</h1>
+<h1 style="display: inline"><%= @list.name %></h1>
 <%= link_to 'All', items_path, class: "button small secondary" %>
 <%= link_to 'Completed', complete_items_path, class: "button small secondary" %>
 <%= link_to 'Uncompleted', incomplete_items_path, class: "button small secondary" %>
-<%= link_to 'Clear', clear_items_path, class: "button small alert", method: :delete, data: { confirm: 'Clear all completed items?' } %>
 <table>
   <thead>
     <tr>
@@ -15,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @items.each do |item| %>
+    <% @list.items.each do |item| %>
       <tr>
         <td>
           <%= best_in_place item, :description %>
@@ -36,5 +35,5 @@
 
 <br>
 <div id="new_item">
-  <%= link_to 'New Item', new_item_path, remote: true, class: "button", style: "color: white" %>
+  <%= link_to 'New Item', new_item_path(list_id: @list.id), remote: true, class: "button", style: "color: white" %>
 </div>

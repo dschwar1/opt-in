@@ -31,7 +31,6 @@ When you are ready to start, please commit an initial README.md so that we can c
 We are interested in how you approach the problem and what you decide to spend your time on, even if you cannot complete all the requirements within the time limit.
 
 ## When you're finished
-Please ensure you have setup instructions included in your README.md file, upload your repo and send a link to the code repo to jnoble184@gmail.com
 
 ## Initial Commit: 2:30pm
 ## Finished Commit: 3:30pm
